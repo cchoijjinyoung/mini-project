@@ -5,10 +5,12 @@ package mini.project;
 
 public class App {
   public String getGreeting() {
-    return "Hello world222s";
+    return "Hello world!!!";
   }
 
   public static void main(String[] args) {
-    System.out.println("비가 옵니다. 천둥이 칩니다. 번개도 칩니다.");
+
+    System.out.println("안녕하세요.");
+    System.out.println("오호라...");
   }
 }
