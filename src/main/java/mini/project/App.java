@@ -9,6 +9,6 @@ public class App {
   }
 
   public static void main(String[] args) {
-    System.out.println("비가 옵니다.");
+    System.out.println("비가 옵니다. 천둥이 칩니다.");
   }
 }
