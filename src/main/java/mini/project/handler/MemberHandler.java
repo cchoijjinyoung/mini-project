@@ -184,7 +184,7 @@ public class MemberHandler {
   // 회원 탈퇴
   private int indexOf(int no) {
     for (int i = 0; i < memberList.size(); i++) {
-      Member member = memberList.get(i);
+    	Member member = memberList.get(i);
       if (member.getNo() == no) {
         return i;
       }
