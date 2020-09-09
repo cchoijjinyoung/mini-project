@@ -14,6 +14,10 @@ public class App {
     System.out.println("안녕하세요.");
     System.out.println("오호라...");
 
+    int a = 100;
+    if (a > 50) {
+      System.out.println("크구나~");
+    }
     System.out.println("오호라...!!!");
   }
 }
