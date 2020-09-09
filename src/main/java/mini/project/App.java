@@ -10,5 +10,6 @@ public class App {
 
   public static void main(String[] args) {
     System.out.println("20200909 지은");
+    System.out.println("bitcamp");
   }
 }
