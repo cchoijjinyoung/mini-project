@@ -97,7 +97,7 @@ public class BookHandler {
       return;
     }
 
-    String response = PromptTest.inputString("정말 탈퇴하시겠습니까?(y/N) ");
+    String response = PromptTest.inputString("정말 삭제하시겠습니까?(y/N) ");
     if (!response.equalsIgnoreCase("y")) {
       System.out.println("도서 삭제를 취소하였습니다.");
       return;
