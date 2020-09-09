@@ -15,5 +15,7 @@ public class App {
     System.out.println("오호라...");
 
     System.out.println("오호라...!!!");
+    System.out.println("오오오오호호호호!!!");
+    int a = 100;
   }
 }
