@@ -9,17 +9,6 @@ public class App {
   }
 
   public static void main(String[] args) {
-
-
-    System.out.println("안녕하세요.");
-    System.out.println("오호라...");
-
-    int a = 100;
-    if (a > 50) {
-      System.out.println("크구나~");
-    }
-    System.out.println("오호라...!!!");
-    System.out.println("오오오오호호호호!!!");
-    int a = 100;
+    System.out.println("20200909 지은");
   }
 }
