@@ -2,15 +2,13 @@ package mini.project.handler;
 
 import java.sql.Date;
 import java.util.LinkedList;
-import mini.project.domain.Book;
-import mini.project.domain.Library;
+import mini.project.domain.BookLibrary;
 import mini.project.util.Prompt;
 
 public class LibraryHandler {
   private int viewCount = 1;
 
-  LinkedList<Library> libraryList = new LinkedList();
-  LinkedList<Book> bookList = new LinkedList();
+  LinkedList<BookLibrary> libraryList = new LinkedList();
   MemberHandler memberHandler;
 
   public LibraryHandler(MemberHandler memberHandler) {
@@ -20,7 +18,7 @@ public class LibraryHandler {
   public void libraryInfo() {
     System.out.println("[도서관 입장 정보]");
 
-    Library library = new Library();
+    BookLibrary library = new BookLibrary();
 
     while (true) {
       String name = Prompt.inputString("회원 아이디?(취소: 빈 문자열) ");
@@ -43,7 +41,7 @@ public class LibraryHandler {
 
   public void rent() {
 
-    Library library = new Library();
+    BookLibrary library = new BookLibrary();
 
     while (true) {
       String name = Prompt.inputString("회원 아이디?(취소: 빈 문자열) ");
@@ -85,9 +83,10 @@ public class LibraryHandler {
   }
 
   public void rentInfo() {
-    System.out.println("[대여된 도서의 상세를 조회합니다.]");
+    System.out.println("[도서의 상세를 조회합니다.]");
     String title = Prompt.inputString("도서명? ");
-    Library library = findByName(title);
+
+    BookLibrary library = findByName(title);
 
     if (library == null) {
       System.out.println("해당 이름의 도서가 없습니다.");
@@ -115,9 +114,9 @@ public class LibraryHandler {
   }
 
 
-  private Library findByName(String title) {
+  private BookLibrary findByName(String title) {
     for (int i = 0; i < libraryList.size(); i++) {
-      Library library = libraryList.get(i);
+      BookLibrary library = libraryList.get(i);
       if (library.getTitle().equals(title)) {
         return library;
       }

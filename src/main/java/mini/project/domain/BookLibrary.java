@@ -2,14 +2,8 @@ package mini.project.domain;
 
 import java.sql.Date;
 
-public class Library {
+public class BookLibrary {
 
-  public String getMemberId() {
-    return memberId;
-  }
-  public void setMemberId(String memberId) {
-    this.memberId = memberId;
-  }
 
   private int state;
   private String title;
@@ -21,7 +15,33 @@ public class Library {
   private Date endrent;
   private boolean Available;
   private String memberId;
+  private String ganre;
+  private String MasterId;
 
+  public boolean isAvailable() {
+    return Available;
+  }
+  public String getMasterId() {
+    return MasterId;
+  }
+  public void setMasterId(String masterId) {
+    MasterId = masterId;
+  }
+  public void setAvailable(boolean available) {
+    Available = available;
+  }
+  public String getGanre() {
+    return ganre;
+  }
+  public void setGanre(String ganre) {
+    this.ganre = ganre;
+  }
+  public String getMemberId() {
+    return memberId;
+  }
+  public void setMemberId(String memberId) {
+    this.memberId = memberId;
+  }
   public int getState() {
     return state;
   }

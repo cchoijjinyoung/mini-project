@@ -49,11 +49,6 @@ public class LibraryMain {
           case "/book/rent": libraryHandler.rent(); break;
           case "/rent/info": libraryHandler.rentInfo(); break;
 
-
-
-
-
-
           case "quit":
           case "exit":
             System.out.println("종료됩니다!");
