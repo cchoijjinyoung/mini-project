@@ -7,14 +7,31 @@ import mini.project.util.Prompt;
 public class BookHandler {
 
   LinkedList<Book> booklist = new LinkedList();
+  LibrarianHandler librarianHandler;
 
+  public BookHandler(LibrarianHandler librarianHandler) {
+    this.librarianHandler = librarianHandler;
+  }
 
   // 도서 등록
   public void add() {
     System.out.println("[도서 등록]");
-
-
     Book book = new Book();
+
+    while (true) {
+      String id = Prompt.inputString("사서 아이디?(취소: 빈 문자열) ");
+
+      if (id.length() == 0) {
+        System.out.println("도서관 입장을 취소합니다.");
+        return;
+      } else if (librarianHandler.findByMaster(id) != null) {
+        book.setMasterId(id);
+        break;
+      }
+      System.out.println("등록된 마스터 계정이 아닙니다.");
+    }
+
+    System.out.println("사서 계정으로 로그인 되었습니다.");
     book.setTitle(Prompt.inputString("도서명? "));
     book.setNo(Prompt.inputInt("도서 번호? "));
     book.setAuthor(Prompt.inputString("작가명? "));

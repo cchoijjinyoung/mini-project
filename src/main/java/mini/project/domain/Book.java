@@ -2,12 +2,19 @@ package mini.project.domain;
 
 public class Book {
 
+  public String getMasterId() {
+    return MasterId;
+  }
+  public void setMasterId(String masterId) {
+    MasterId = masterId;
+  }
   int no;
   String title;
   String author;
   String ganre;
   String publisher;
   private boolean Available;
+  private String MasterId;
 
 
   public String getPublisher() {

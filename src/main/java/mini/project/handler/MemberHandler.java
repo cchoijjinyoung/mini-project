@@ -9,7 +9,6 @@ public class MemberHandler {
 
   LinkedList<Member> memberList = new LinkedList();
 
-
   // 회원 등록
   public void add() {
     System.out.println("[도서관 회원 가입]");

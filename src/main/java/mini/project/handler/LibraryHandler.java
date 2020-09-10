@@ -9,7 +9,6 @@ import mini.project.util.Prompt;
 public class LibraryHandler {
   private int viewCount = 1;
 
-  private int Viewcount = 1;
   LinkedList<Library> libraryList = new LinkedList();
   LinkedList<Book> bookList = new LinkedList();
   MemberHandler memberHandler;

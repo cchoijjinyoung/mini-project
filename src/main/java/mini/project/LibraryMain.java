@@ -1,6 +1,7 @@
 package mini.project;
 
 import mini.project.handler.BookHandler;
+import mini.project.handler.LibrarianHandler;
 import mini.project.handler.LibraryHandler;
 import mini.project.handler.MemberHandler;
 import mini.project.util.Prompt;
@@ -13,10 +14,11 @@ public class LibraryMain {
 
 
     MemberHandler memberHandler = new MemberHandler();
+    LibrarianHandler librarianHandler = new LibrarianHandler();
 
     LibraryHandler libraryHandler = new LibraryHandler(memberHandler);
 
-    BookHandler bookHandler = new BookHandler();
+    BookHandler bookHandler = new BookHandler(librarianHandler);
 
     loop:
       while (true) {
@@ -32,12 +34,12 @@ public class LibraryMain {
           case "/member/delete": memberHandler.delete(); break;
           case "/member/login": memberHandler.login(); break;
 
-
           case "/book/add": bookHandler.add(); break;
           case "/book/list": bookHandler.list(); break;
           case "/book/detail": bookHandler.detail(); break;
 
           // 사서용
+          case "/member/master": librarianHandler.master(); break;
           case "/book/delete": bookHandler.delete(); break;
           case "/book/update": bookHandler.update(); break;
 

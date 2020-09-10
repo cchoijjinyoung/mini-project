@@ -3,6 +3,7 @@ package mini.project.domain;
 import java.sql.Date;
 
 public class Member {
+
   // 회원 데이터
   private int no;
   private String id;
@@ -11,6 +12,7 @@ public class Member {
   private String password;
   private String tel;
   private Date registeredDate;
+
 
   public int getNo() {
     return no;
