@@ -32,6 +32,7 @@ public class BookHandler {
     }
 
     System.out.println("사서 계정으로 로그인 되었습니다.");
+
     book.setTitle(Prompt.inputString("도서명? "));
     book.setNo(Prompt.inputInt("도서 번호? "));
     book.setAuthor(Prompt.inputString("작가명? "));
