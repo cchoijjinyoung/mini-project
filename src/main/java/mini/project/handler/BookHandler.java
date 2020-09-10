@@ -2,7 +2,7 @@ package mini.project.handler;
 
 import java.util.LinkedList;
 import mini.project.domain.Book;
-import mini.project.util.PromptTest;
+import mini.project.util.Prompt;
 
 public class BookHandler {
 
@@ -13,12 +13,13 @@ public class BookHandler {
   public void add() {
     System.out.println("[도서 등록]");
 
+
     Book book = new Book();
-    book.setTitle(PromptTest.inputString("도서명? "));
-    book.setNo(PromptTest.inputInt("도서 번호? "));
-    book.setAuthor(PromptTest.inputString("작가명? "));
-    book.setGanre(PromptTest.inputString("장르? "));
-    book.setPublisher(PromptTest.inputString("출판사? "));
+    book.setTitle(Prompt.inputString("도서명? "));
+    book.setNo(Prompt.inputInt("도서 번호? "));
+    book.setAuthor(Prompt.inputString("작가명? "));
+    book.setGanre(Prompt.inputString("장르? "));
+    book.setPublisher(Prompt.inputString("출판사? "));
 
     System.out.println("도서를 등록했습니다.");
 
@@ -42,7 +43,7 @@ public class BookHandler {
   // 도서 조회
   public void detail() {
     System.out.println("[도서 조회]");
-    int no = PromptTest.inputInt("번호? ");
+    int no = Prompt.inputInt("번호? ");
     Book book = findByNo(no);
 
     if (book == null) {
@@ -59,7 +60,7 @@ public class BookHandler {
   // 도서 정보 수정
   public void update() {
     System.out.println("[도서 수정]");
-    int no = PromptTest.inputInt("번호? ");
+    int no = Prompt.inputInt("번호? ");
     Book book = findByNo(no);
 
     if (book == null) {
@@ -67,14 +68,14 @@ public class BookHandler {
       return;
     }
 
-    String title = PromptTest.inputString(
+    String title = Prompt.inputString(
         String.format("도서제목(%s)? ",book.getTitle()));
-    String author = PromptTest.inputString(
+    String author = Prompt.inputString(
         String.format("지은이(%s)? ", book.getAuthor()));
-    String ganre = PromptTest.inputString(
+    String ganre = Prompt.inputString(
         String.format("장르(%s)? ", book.getGanre()));
 
-    String response = PromptTest.inputString("정말 변경하시겠습니까?(y/N) ");
+    String response = Prompt.inputString("정말 변경하시겠습니까?(y/N) ");
     if (!response.equalsIgnoreCase("y")) {
       System.out.println("도서 수정을 취소하였습니다.");
       return;
@@ -90,7 +91,7 @@ public class BookHandler {
   // 도서 삭제
   public void delete() {
     System.out.println("[도서 삭제]");
-    int no = PromptTest.inputInt("번호? ");
+    int no = Prompt.inputInt("번호? ");
     int index = indexOf(no);
 
     if (index == -1) {
@@ -98,7 +99,7 @@ public class BookHandler {
       return;
     }
 
-    String response = PromptTest.inputString("정말 삭제하시겠습니까?(y/N) ");
+    String response = Prompt.inputString("정말 삭제하시겠습니까?(y/N) ");
     if (!response.equalsIgnoreCase("y")) {
       System.out.println("도서 삭제를 취소하였습니다.");
       return;

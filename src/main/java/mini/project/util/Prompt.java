@@ -3,7 +3,7 @@ package mini.project.util;
 import java.sql.Date;
 import java.util.Scanner;
 
-public class PromptTest {
+public class Prompt {
   static Scanner keyboardScan = new Scanner(System.in);
 
   public static String inputString(String title) {

@@ -4,6 +4,13 @@ import java.sql.Date;
 
 public class Library {
 
+  public String getMemberId() {
+    return memberId;
+  }
+  public void setMemberId(String memberId) {
+    this.memberId = memberId;
+  }
+
   private int state;
   private String title;
   private String name;
@@ -13,7 +20,7 @@ public class Library {
   private Date startrent;
   private Date endrent;
   private boolean Available;
-
+  private String memberId;
 
   public int getState() {
     return state;
@@ -72,9 +79,4 @@ public class Library {
     this.Available = bAvailable;
   }
 
-
-
-
-
 }
-

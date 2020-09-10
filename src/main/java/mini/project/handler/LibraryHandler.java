@@ -4,44 +4,91 @@ import java.sql.Date;
 import java.util.LinkedList;
 import mini.project.domain.Book;
 import mini.project.domain.Library;
-import mini.project.util.PromptTest;
+import mini.project.util.Prompt;
 
 public class LibraryHandler {
+  private int viewCount = 1;
 
   private int Viewcount = 1;
   LinkedList<Library> libraryList = new LinkedList();
   LinkedList<Book> bookList = new LinkedList();
+  MemberHandler memberHandler;
+
+  public LibraryHandler(MemberHandler memberHandler) {
+    this.memberHandler = memberHandler;
+  }
 
   public void libraryInfo() {
     System.out.println("[도서관 입장 정보]");
 
     Library library = new Library();
 
+    while (true) {
+      String name = Prompt.inputString("회원 아이디?(취소: 빈 문자열) ");
+
+      if (name.length() == 0) {
+        System.out.println("도서관 입장을 취소합니다.");
+        return;
+      } else if (memberHandler.findByName(name) != null) {
+        library.setMemberId(name);
+        break;
+      }
+      System.out.println("등록된 회원이 아닙니다.");
+    }
+
     Date todayDate = new Date(System.currentTimeMillis());
     System.out.printf("오늘의 날짜: %s\n", todayDate);
-    System.out.printf("입장 횟수: %d\n", Viewcount++);
+    System.out.printf("입장 횟수: %s\n", viewCount++);
   }
 
   public void rent() {
-    System.out.println("[대여 도서 입력]");
+    System.out.println("[도서 대여 입력]");
 
     Library library = new Library();
-    library.setTitle(PromptTest.inputString("책 이름? "));
-    library.setNo(PromptTest.inputInt("코드? "));
-    library.setAuthor(PromptTest.inputString("저자? "));
-    library.setPublisher(PromptTest.inputString("출판사? "));
-    library.setStartrent(PromptTest.inputDate("대여 시작일? "));
-    library.setEndrent(PromptTest.inputDate("대여 완료일? "));
-    library.setState(PromptTest.inputInt("상태?\n1: 대여 중\n2: 대여 가능\n> "));
+    library.setName(Prompt.inputString("책 이름? "));
+    library.setNo(Prompt.inputInt("코드? "));
+    library.setAuthor(Prompt.inputString("저자? "));
+    library.setPublisher(Prompt.inputString("출판사? "));
+    library.setStartrent(Prompt.inputDate("대여 시작일? "));
+    library.setEndrent(Prompt.inputDate("대여 완료일? "));
+    library.setState(Prompt.inputInt("상태?\n1: 대여 중\n2: 대여 가능\n> "));
 
     libraryList.add(library);
   }
 
+//  public void checkBook() {
+//    while (true) {
+//      System.out.println("해당 도서명을 입력해주세요");
+//      String temp = Prompt.inputString("해당 도서명? ");
+//      int count = 0;
+//
+//      for (int i = 0; i < libraryList.size(); i++) {
+//        if (temp.equals(libraryList.get(i).getTitle())) {
+//          count++;
+//          boolean bStatus = libraryList.get(i).isbAvailable();
+//          if (bStatus) {
+//            bStatus = false;
+//            System.out.println("도서가 대여되었습니다.");
+//          } else {
+//            bStatus = true;
+//            System.out.println("도서가 반납되었습니다.");
+//          }
+//          libraryList.get(i).setbAvailable(bStatus);
+//          break;
+//        }
+//      }
+//
+//      if (count == 0) {
+//        System.out.println("해당 도서가 존재하지 않습니다. 도서명을 다시 입력하세요.");
+//      }
+//        break;
+//      }
+//    }
 
   //  public void checkBook() {
   //    while (true) {
   //      System.out.println("[해당 도서의 재고 유무를 확인합니다.]");
-  //      String temp = PromptTest.inputString("해당 도서명? ");
+  //      String temp = Prompt.inputString("해당 도서명? ");
   //      int count = 0;
   //      for (int i = 0; i < libraryList.size(); i++) {
   //        if (temp.equals(libraryList.get(i).getTitle())) {
@@ -70,7 +117,7 @@ public class LibraryHandler {
 
   public void bookInfo() {
     System.out.println("[해당 도서의 상세를 조회합니다.]");
-    String title = PromptTest.inputString("도서명? ");
+    String title = Prompt.inputString("도서명? ");
     Library library = findByName(title);
 
     if (library == null) {

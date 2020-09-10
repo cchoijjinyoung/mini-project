@@ -3,7 +3,7 @@ package mini.project.handler;
 import java.sql.Date;
 import java.util.LinkedList;
 import mini.project.domain.Member;
-import mini.project.util.PromptTest;
+import mini.project.util.Prompt;
 
 public class MemberHandler {
 
@@ -13,16 +13,16 @@ public class MemberHandler {
   // 회원 등록
   public void add() {
     System.out.println("[도서관 회원 가입]");
-    System.out.println("회원 가입 시 입력하신 번호는");
+    System.out.println("회원 가입 시 입력하신 회원 정보는");
     System.out.println("1. 도서 시스템 이용 / 2. 회원 찾기 및 회원 변경 관련하여 이용되며 분실에 유의하시기 바랍니다.");
 
     Member member = new Member();
-    member.setNo(PromptTest.inputInt("번호? "));
-    member.setId(PromptTest.inputString("아이디? "));
-    member.setName(PromptTest.inputString("이름? "));
-    member.setEmail(PromptTest.inputString("이메일? "));
-    member.setPassword(PromptTest.inputString("암호? "));
-    member.setTel(PromptTest.inputString("전화? "));
+    member.setNo(Prompt.inputInt("번호? "));
+    member.setId(Prompt.inputString("아이디? "));
+    member.setName(Prompt.inputString("이름? "));
+    member.setEmail(Prompt.inputString("이메일? "));
+    member.setPassword(Prompt.inputString("암호? "));
+    member.setTel(Prompt.inputString("전화? "));
     member.setRegisteredDate(new Date(System.currentTimeMillis()));
 
     System.out.println(member.getId() + "님 회원 등록을 축하드립니다. 감사합니다.");
@@ -49,7 +49,7 @@ public class MemberHandler {
   // 회원 상세 정보 조회
   public void detail() {
     System.out.println("[회원 상세 조회]");
-    int no = PromptTest.inputInt("번호? ");
+    int no = Prompt.inputInt("번호? ");
     Member member = findByNo(no);
 
     if (member == null) {
@@ -67,7 +67,7 @@ public class MemberHandler {
   // 회원 정보 수정
   public void update() {
     System.out.println("[회원정보 수정]");
-    int no = PromptTest.inputInt("번호? ");
+    int no = Prompt.inputInt("번호? ");
     Member member = findByNo(no);
 
     if (member == null) {
@@ -75,17 +75,17 @@ public class MemberHandler {
       return;
     }
 
-    String name = PromptTest.inputString(
+    String name = Prompt.inputString(
         String.format("이름(%s)? ", member.getName()));
-    String id = PromptTest.inputString(
+    String id = Prompt.inputString(
         String.format("아이디(%s)? ", member.getId()));
-    String email = PromptTest.inputString(
+    String email = Prompt.inputString(
         String.format("이메일(%s)? ", member.getEmail()));
-    String password = PromptTest.inputString("암호? ");
-    String tel = PromptTest.inputString(
+    String password = Prompt.inputString("암호? ");
+    String tel = Prompt.inputString(
         String.format("전화(%s)? ", member.getTel()));
 
-    String response = PromptTest.inputString("정말 변경하시겠습니까?(y/N) ");
+    String response = Prompt.inputString("정말 변경하시겠습니까?(y/N) ");
     if (!response.equalsIgnoreCase("y")) {
       System.out.println("회원 변경을 취소하였습니다.");
       return;
@@ -103,7 +103,7 @@ public class MemberHandler {
   // 회원 삭제
   public void delete() {
     System.out.println("[회원 탈퇴]");
-    int no = PromptTest.inputInt("번호? ");
+    int no = Prompt.inputInt("번호? ");
     int index = indexOf(no);
 
     if (index == -1) {
@@ -111,7 +111,7 @@ public class MemberHandler {
       return;
     }
 
-    String response = PromptTest.inputString("정말 탈퇴하시겠습니까?(y/N) ");
+    String response = Prompt.inputString("정말 탈퇴하시겠습니까?(y/N) ");
     if (!response.equalsIgnoreCase("y")) {
       System.out.println("회원 탈퇴를 취소하였습니다.");
       return;
@@ -123,8 +123,8 @@ public class MemberHandler {
 
   // 로그인
   public void login() {
-    String id = PromptTest.inputString("아이디? ");
-    String pw = PromptTest.inputString("암호? ");
+    String id = Prompt.inputString("아이디? ");
+    String pw = Prompt.inputString("암호? ");
 
     Member member = findById(id);
 
@@ -151,10 +151,10 @@ public class MemberHandler {
   }
 
   // 회원 이름
-  private Member findByName(String name) {
+  public Member findByName(String name) {
     for (int i = 0; i < memberList.size(); i++) {
       Member member = memberList.get(i);
-      if (member.getName().equals(name)) {
+      if (member.getId().equals(name)) {
         return member;
       }
     }
