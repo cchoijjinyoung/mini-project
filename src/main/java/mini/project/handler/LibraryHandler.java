@@ -24,7 +24,7 @@ public class LibraryHandler {
   }
 
   public void rent() {
-    System.out.println("[도서 대여]");
+    System.out.println("[도서 대여 입력]");
 
     Library library = new Library();
     library.setName(PromptTest.inputString("책 이름? "));
