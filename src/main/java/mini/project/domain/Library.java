@@ -12,7 +12,6 @@ public class Library {
   private int no;
   private Date startrent;
   private Date endrent;
-  private int viewCount;
   private boolean Available;
 
 
@@ -63,12 +62,6 @@ public class Library {
   }
   public void setEndrent(Date endrent) {
     this.endrent = endrent;
-  }
-  public int getViewCount() {
-    return viewCount;
-  }
-  public void setViewCount(int enterCount) {
-    this.viewCount = enterCount;
   }
 
   public boolean isbAvailable() {

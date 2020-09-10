@@ -8,7 +8,7 @@ import mini.project.util.PromptTest;
 
 public class LibraryHandler {
 
-  int Viewcount = 1;
+  private int Viewcount = 1;
   LinkedList<Library> libraryList = new LinkedList();
   LinkedList<Book> bookList = new LinkedList();
 

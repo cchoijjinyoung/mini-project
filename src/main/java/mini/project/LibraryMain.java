@@ -40,7 +40,7 @@ public class LibraryMain {
           case "/book/delete": bookHandler.delete(); break;
           case "/book/update": bookHandler.update(); break;
 
-          case "/library/libraryInfo": libraryHandler.libraryInfo(); break;
+          case "/library/info": libraryHandler.libraryInfo(); break;
           case "/book/info": libraryHandler.bookInfo(); break;
           case "/book/rent": libraryHandler.rent(); break;
           //          case "/book/check": libraryHandler.checkBook(); break;
