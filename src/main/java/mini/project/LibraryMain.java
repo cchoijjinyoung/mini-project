@@ -23,6 +23,8 @@ public class LibraryMain {
         String command = PromptTest.inputString("명령> ");
 
         switch (command) {
+
+          // 사용자
           case "/member/add": memberHandler.add(); break;
           case "/member/list": memberHandler.list(); break;
           case "/member/detail": memberHandler.detail(); break;
@@ -32,12 +34,16 @@ public class LibraryMain {
 
           case "/book/add": bookHandler.add(); break;
           case "/book/list": bookHandler.list(); break;
-          case "/book/update": bookHandler.delete(); break;
-          case "/book/delete": bookHandler.delete(); break;
           case "/book/detail": bookHandler.detail(); break;
 
+          // 사서용
+          case "/book/delete": bookHandler.delete(); break;
+          case "/book/update": bookHandler.update(); break;
+
           case "/library/libraryInfo": libraryHandler.libraryInfo(); break;
-          case "/book/check": libraryHandler.checkBook(); break;
+          case "/book/info": libraryHandler.bookInfo(); break;
+          case "/book/rent": libraryHandler.rent(); break;
+          //          case "/book/check": libraryHandler.checkBook(); break;
 
 
 
