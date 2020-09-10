@@ -14,9 +14,9 @@ public class BookHandler {
     System.out.println("[도서 등록]");
 
     Book book = new Book();
-    book.setNo(PromptTest.inputInt("번호? "));
-    book.setTitle(PromptTest.inputString("도서제목? "));
-    book.setAuthor(PromptTest.inputString("지은이? "));
+    book.setTitle(PromptTest.inputString("도서명? "));
+    book.setNo(PromptTest.inputInt("도서 번호? "));
+    book.setAuthor(PromptTest.inputString("작가명? "));
     book.setGanre(PromptTest.inputString("장르? "));
 
     System.out.println("도서를 등록했습니다.");
@@ -31,29 +31,29 @@ public class BookHandler {
     for (int i = 0; i < booklist.size(); i++) {
       Book book = booklist.get(i);
       System.out.printf("%d, %s, %s, %s\n",
-         book.getNo(),
-         book.getTitle(),
-         book.getAuthor(),
-         book.getGanre());
+          book.getNo(),
+          book.getTitle(),
+          book.getAuthor(),
+          book.getGanre());
     }
   }
 
-  // 도서 조회
-  public void detail() {
-    System.out.println("[도서 조회]");
-    int no = PromptTest.inputInt("번호? ");
-    Book book = findByNo(no);
-
-    if (book == null) {
-      System.out.println("해당 도서가 존재하지 않습니다.");
-      return;
-    }
-
-    System.out.printf("번호: %s\n", book.getNo());
-    System.out.printf("도서제목: %s\n",  book.getTitle());
-    System.out.printf("지은이: %s\n",  book.getAuthor());
-    System.out.printf("장르: %s\n", book.getGanre());
-  }
+  //  // 도서 조회
+  //  public void detail() {
+  //    System.out.println("[도서 조회]");
+  //    int no = PromptTest.inputInt("번호? ");
+  //    Book book = findByNo(no);
+  //
+  //    if (book == null) {
+  //      System.out.println("해당 도서가 존재하지 않습니다.");
+  //      return;
+  //    }
+  //
+  //    System.out.printf("번호: %s\n", book.getNo());
+  //    System.out.printf("도서제목: %s\n",  book.getTitle());
+  //    System.out.printf("지은이: %s\n",  book.getAuthor());
+  //    System.out.printf("장르: %s\n", book.getGanre());
+  //  }
 
   // 도서 정보 수정
   public void update() {

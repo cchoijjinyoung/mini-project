@@ -7,12 +7,12 @@ public class Library {
   private int state;
   private String title;
   private String name;
-  private String writer;
+  private String author;
   private String publisher;
   private int code;
   private Date startrent;
   private Date endrent;
-  private int enterCount;
+  private int viewCount;
   private boolean Available;
 
 
@@ -34,11 +34,11 @@ public class Library {
   public void setName(String name) {
     this.name = name;
   }
-  public String getWriter() {
-    return writer;
+  public String getAuthor() {
+    return author;
   }
-  public void setWriter(String writer) {
-    this.writer = writer;
+  public void setAuthor(String writer) {
+    this.author = writer;
   }
   public String getPublisher() {
     return publisher;
@@ -64,11 +64,11 @@ public class Library {
   public void setEndrent(Date endrent) {
     this.endrent = endrent;
   }
-  public int getEnterCount() {
-    return enterCount;
+  public int getViewCount() {
+    return viewCount;
   }
-  public void setEnterCount(int enterCount) {
-    this.enterCount = enterCount;
+  public void setViewCount(int enterCount) {
+    this.viewCount = enterCount;
   }
 
   public boolean isbAvailable() {

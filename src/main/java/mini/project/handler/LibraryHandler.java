@@ -9,7 +9,7 @@ public class LibraryHandler {
 
   LinkedList<Library> libraryList = new LinkedList();
 
-  public void enter() {
+  public void libraryInfo() {
     System.out.println("도서관 입장 정보");
 
     Library library = new Library();
@@ -17,8 +17,8 @@ public class LibraryHandler {
     Date todayDate = new Date(System.currentTimeMillis());
     System.out.printf("오늘의 날짜: %s\n", todayDate);
 
-    library.setEnterCount(library.getEnterCount() + 1);
-    System.out.printf("입장 횟수: %s\n", library.getEnterCount());
+    library.setViewCount(library.getViewCount() + 1);
+    System.out.printf("입장 횟수: %s\n", library.getViewCount());
   }
 
   public void checkBook() {
@@ -51,7 +51,7 @@ public class LibraryHandler {
 
   }
 
-  public void info() {
+  public void bookInfo() {
     System.out.println("[도서 상세 조회]");
     System.out.println("조회할 책의 이름을 입력해주세요.");
     String title = PromptTest.inputString("도서명? ");
@@ -63,7 +63,7 @@ public class LibraryHandler {
     }
 
     System.out.printf("도서명: %s\n", library.getTitle());
-    System.out.printf("저자: %s\n", library.getWriter());
+    System.out.printf("저자: %s\n", library.getAuthor());
     System.out.printf("도서코드: %s\n", library.getCode());
     System.out.printf("출판사: %s\n", library.getPublisher());
 
