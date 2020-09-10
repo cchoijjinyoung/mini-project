@@ -1,12 +1,12 @@
 package mini.project.handler;
 
 import java.util.LinkedList;
-import mini.project.domain.Book;
+import mini.project.domain.BookLibrary;
 import mini.project.util.Prompt;
 
 public class BookHandler {
 
-  LinkedList<Book> booklist = new LinkedList();
+  LinkedList<BookLibrary> booklist = new LinkedList();
   LibrarianHandler librarianHandler;
 
   public BookHandler(LibrarianHandler librarianHandler) {
@@ -16,7 +16,7 @@ public class BookHandler {
   // 도서 등록
   public void add() {
     System.out.println("[도서 등록]");
-    Book book = new Book();
+    BookLibrary book = new BookLibrary();
 
     while (true) {
       String id = Prompt.inputString("사서 아이디?(취소: 빈 문자열) ");
@@ -49,7 +49,7 @@ public class BookHandler {
     System.out.println("[도서 목록]");
 
     for (int i = 0; i < booklist.size(); i++) {
-      Book book = booklist.get(i);
+      BookLibrary book = booklist.get(i);
       System.out.printf("%d, %s, %s, %s\n",
           book.getNo(),
           book.getTitle(),
@@ -62,7 +62,7 @@ public class BookHandler {
   public void detail() {
     System.out.println("[도서 조회]");
     int no = Prompt.inputInt("번호? ");
-    Book book = findByNo(no);
+    BookLibrary book = findByNo(no);
 
     if (book == null) {
       System.out.println("해당 도서가 존재하지 않습니다.");
@@ -79,7 +79,7 @@ public class BookHandler {
   public void update() {
     System.out.println("[도서 수정]");
     int no = Prompt.inputInt("도서 번호? ");
-    Book book = findByNo(no);
+    BookLibrary book = findByNo(no);
 
     if (book == null) {
       System.out.println("해당 번호의 도서가 없습니다.");
@@ -128,9 +128,9 @@ public class BookHandler {
   }
 
   // 도서 번호
-  private Book findByNo(int no) {
+  private BookLibrary findByNo(int no) {
     for (int i = 0; i < booklist.size(); i++) {
-      Book book = booklist.get(i);
+      BookLibrary book = booklist.get(i);
       if (book.getNo() == no) {
         return book;
       }
@@ -141,7 +141,7 @@ public class BookHandler {
   // 도서 삭제
   private int indexOf(int no) {
     for (int i = 0; i < booklist.size(); i++) {
-      Book book = booklist.get(i);
+      BookLibrary book = booklist.get(i);
       if (book.getNo() == no) {
         return i;
       }
