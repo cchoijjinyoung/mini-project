@@ -5,6 +5,7 @@ import mini.project.handler.LibraryHandler;
 import mini.project.handler.MemberHandler;
 import mini.project.util.Prompt;
 
+// 메인
 public class LibraryMain {
 
   public static void main(String[] args) {
