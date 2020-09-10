@@ -25,6 +25,19 @@ public class LibrarianHandler {
     librarianList.add(librarian);
   }
 
+  public void list() {
+    System.out.println("[도서관 사서 목록]");
+
+    for (int i = 0; i < librarianList.size(); i++) {
+      Librarian librarian = librarianList.get(i);
+      System.out.printf("%s, %s, %s, %s\n",
+          librarian.getId(),
+          librarian.getName(),
+          librarian.getPassword(),
+          librarian.getRegisteredDate());
+    }
+  }
+
   // 사서 이름
   public Librarian findByMaster(String id) {
     for (int i = 0; i < librarianList.size(); i++) {

@@ -32,27 +32,18 @@ public class LibraryMain {
           case "/member/detail": memberHandler.detail(); break; // 회원 상세
           case "/member/update": memberHandler.update(); break; // 회원 수정
           case "/member/delete": memberHandler.delete(); break; // 회원 탈퇴
-
           case "/member/login": memberHandler.login(); break;// 로그인
-          case "/library/info": libraryHandler.libraryInfo(); break; // 이용정보
           case "/book/list": bookHandler.list(); break; // 도서 리스트
           case "/book/detail": bookHandler.detail(); break; // 도서 상세
-
-          case "/book/info": libraryHandler.bookInfo(); break;
+          case "/library/info": libraryHandler.libraryInfo(); break; // 이용정보
           case "/book/rent": libraryHandler.rent(); break;
+          case "/rent/info": libraryHandler.rentInfo(); break;
 
-          // 사서용
-          case "/member/master": librarianHandler.master(); break; // 사서 등록
-          case "/book/add": bookHandler.add(); break; // 도서 등록
-          case "/book/delete": bookHandler.delete(); break; // 도서 삭제
-          case "/book/update": bookHandler.update(); break; // 도서 수정
-
-
-
-
-
-
-
+          // 관리자(사서)용
+          case "/master/add": librarianHandler.master(); break;
+          case "/master/list": librarianHandler.list(); break;
+          case "/book/delete": bookHandler.delete(); break;
+          case "/book/update": bookHandler.update(); break;
 
           case "quit":
           case "exit":
