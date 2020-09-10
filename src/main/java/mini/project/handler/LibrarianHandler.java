@@ -20,7 +20,7 @@ public class LibrarianHandler {
     librarian.setPassword(Prompt.inputString("암호? "));
     librarian.setRegisteredDate(new Date(System.currentTimeMillis()));
 
-    System.out.println(librarian.getId() + "님 마스터 계정으로 등록되었습니다.");
+    System.out.println(librarian.getId() + "님 사서 계정으로 등록되었습니다.");
 
     librarianList.add(librarian);
   }

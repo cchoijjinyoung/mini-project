@@ -46,7 +46,7 @@ public class LibraryMain {
           case "/library/info": libraryHandler.libraryInfo(); break;
           case "/book/info": libraryHandler.bookInfo(); break;
           case "/book/rent": libraryHandler.rent(); break;
-          //          case "/book/check": libraryHandler.checkBook(); break;
+
 
 
 

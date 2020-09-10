@@ -41,78 +41,46 @@ public class LibraryHandler {
   }
 
   public void rent() {
-    System.out.println("[도서 대여 입력]");
 
     Library library = new Library();
-    library.setName(Prompt.inputString("책 이름? "));
-    library.setNo(Prompt.inputInt("코드? "));
-    library.setAuthor(Prompt.inputString("저자? "));
-    library.setPublisher(Prompt.inputString("출판사? "));
-    library.setStartrent(Prompt.inputDate("대여 시작일? "));
-    library.setEndrent(Prompt.inputDate("대여 완료일? "));
-    library.setState(Prompt.inputInt("상태?\n1: 대여 중\n2: 대여 가능\n> "));
 
-    libraryList.add(library);
+    while (true) {
+      String name = Prompt.inputString("회원 아이디?(취소: 빈 문자열) ");
+
+      if (name.length() == 0) {
+        System.out.println("대여를 취소합니다.");
+        return;
+      } else if (memberHandler.findByName(name) != null) {
+        library.setMemberId(name);
+        break;
+      }
+      System.out.println("등록된 회원이 아닙니다.");
+    }
+    System.out.println("[도서 대여 정보 입력]");
+
+    while (true) {
+      String title = Prompt.inputString("도서명?(취소: 빈 문자열) ");
+
+      if (title.length() == 0) {
+        System.out.println("정보 입력을 취소합니다.");
+        return;
+      } else {
+        System.out.println("도서의 정보를 적어주세요.");
+
+        library.setTitle(Prompt.inputString("도서명? "));
+        library.setNo(Prompt.inputInt("코드? "));
+        library.setAuthor(Prompt.inputString("저자? "));
+        library.setPublisher(Prompt.inputString("출판사? "));
+        library.setStartrent(Prompt.inputDate("대여 시작일? "));
+        library.setEndrent(Prompt.inputDate("대여 완료일? "));
+        library.setState(Prompt.inputInt("상태?\n1: 대여 실행\n2: 대여 취소\n> "));
+
+        libraryList.add(library);
+        break;
+
+      }
+    }
   }
-
-//  public void checkBook() {
-//    while (true) {
-//      System.out.println("해당 도서명을 입력해주세요");
-//      String temp = Prompt.inputString("해당 도서명? ");
-//      int count = 0;
-//
-//      for (int i = 0; i < libraryList.size(); i++) {
-//        if (temp.equals(libraryList.get(i).getTitle())) {
-//          count++;
-//          boolean bStatus = libraryList.get(i).isbAvailable();
-//          if (bStatus) {
-//            bStatus = false;
-//            System.out.println("도서가 대여되었습니다.");
-//          } else {
-//            bStatus = true;
-//            System.out.println("도서가 반납되었습니다.");
-//          }
-//          libraryList.get(i).setbAvailable(bStatus);
-//          break;
-//        }
-//      }
-//
-//      if (count == 0) {
-//        System.out.println("해당 도서가 존재하지 않습니다. 도서명을 다시 입력하세요.");
-//      }
-//        break;
-//      }
-//    }
-
-  //  public void checkBook() {
-  //    while (true) {
-  //      System.out.println("[해당 도서의 재고 유무를 확인합니다.]");
-  //      String temp = Prompt.inputString("해당 도서명? ");
-  //      int count = 0;
-  //      for (int i = 0; i < libraryList.size(); i++) {
-  //        if (temp.equals(libraryList.get(i).getTitle())) {
-  //          count++;
-  //          boolean bStatus = libraryList.get(i).isbAvailable();
-  //
-  //          if (bStatus) {
-  //            bStatus = false;
-  //            System.out.println("도서가 대여되었습니다.");
-  //          } else {
-  //            bStatus = true;
-  //            System.out.println("도서가 반납되었습니다.");
-  //          }
-  //          libraryList.get(i).setbAvailable(bStatus);
-  //          break;
-  //        }
-  //      }
-  //      if (count == 0) {
-  //        System.out.println("해당 도서가 존재하지 않습니다. 도서명을 다시 입력하세요.");
-  //      } else {
-  //        break;
-  //      }
-  //    }
-  //
-  //  }
 
   public void bookInfo() {
     System.out.println("[해당 도서의 상세를 조회합니다.]");
