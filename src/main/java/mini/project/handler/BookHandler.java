@@ -78,7 +78,7 @@ public class BookHandler {
   // 도서 정보 수정
   public void update() {
     System.out.println("[도서 수정]");
-    int no = Prompt.inputInt("번호? ");
+    int no = Prompt.inputInt("도서 번호? ");
     Book book = findByNo(no);
 
     if (book == null) {

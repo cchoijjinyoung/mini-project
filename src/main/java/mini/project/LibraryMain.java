@@ -26,26 +26,28 @@ public class LibraryMain {
 
         switch (command) {
 
-          // 사용자
-          case "/member/add": memberHandler.add(); break;
-          case "/member/list": memberHandler.list(); break;
-          case "/member/detail": memberHandler.detail(); break;
-          case "/member/update": memberHandler.update(); break;
-          case "/member/delete": memberHandler.delete(); break;
-          case "/member/login": memberHandler.login(); break;
+          // 회원 전용
+          case "/member/add": memberHandler.add(); break; // 회원 가입
+          case "/member/list": memberHandler.list(); break; // 회원 목록
+          case "/member/detail": memberHandler.detail(); break; // 회원 상세
+          case "/member/update": memberHandler.update(); break; // 회원 수정
+          case "/member/delete": memberHandler.delete(); break; // 회원 탈퇴
 
-          case "/book/add": bookHandler.add(); break;
-          case "/book/list": bookHandler.list(); break;
-          case "/book/detail": bookHandler.detail(); break;
+          case "/member/login": memberHandler.login(); break;// 로그인
+          case "/library/info": libraryHandler.libraryInfo(); break; // 이용정보
+          case "/book/list": bookHandler.list(); break; // 도서 리스트
+          case "/book/detail": bookHandler.detail(); break; // 도서 상세
 
-          // 사서용
-          case "/member/master": librarianHandler.master(); break;
-          case "/book/delete": bookHandler.delete(); break;
-          case "/book/update": bookHandler.update(); break;
-
-          case "/library/info": libraryHandler.libraryInfo(); break;
           case "/book/info": libraryHandler.bookInfo(); break;
           case "/book/rent": libraryHandler.rent(); break;
+
+          // 사서용
+          case "/member/master": librarianHandler.master(); break; // 사서 등록
+          case "/book/add": bookHandler.add(); break; // 도서 등록
+          case "/book/delete": bookHandler.delete(); break; // 도서 삭제
+          case "/book/update": bookHandler.update(); break; // 도서 수정
+
+
 
 
 
