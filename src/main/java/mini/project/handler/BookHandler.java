@@ -15,14 +15,11 @@ public class BookHandler {
 
 
     Book book = new Book();
-    book.setNo(Prompt.inputInt("번호? "));
-    book.setTitle(Prompt.inputString("도서제목? "));
-    book.setAuthor(Prompt.inputString("지은이? "));
-    book.setGanre(Prompt.inputString("장르? "));
     book.setTitle(Prompt.inputString("도서명? "));
     book.setNo(Prompt.inputInt("도서 번호? "));
     book.setAuthor(Prompt.inputString("작가명? "));
     book.setGanre(Prompt.inputString("장르? "));
+    book.setPublisher(Prompt.inputString("출판사? "));
 
     System.out.println("도서를 등록했습니다.");
 
