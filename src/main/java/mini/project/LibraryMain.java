@@ -5,8 +5,6 @@ import mini.project.handler.LibraryHandler;
 import mini.project.handler.MemberHandler;
 import mini.project.util.Prompt;
 
-// Member - 회원 정보 필드
-// MembrHandler - 회원 가입/목록/상세조회/수정/탈퇴/로그인
 public class LibraryMain {
 
   public static void main(String[] args) {
