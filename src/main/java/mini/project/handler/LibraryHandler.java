@@ -66,6 +66,7 @@ public class LibraryHandler {
         return;
       } else {
         System.out.println("도서의 정보를 적어주세요.");
+        System.out.println();
 
         library.setTitle(Prompt.inputString("도서명? "));
         library.setNo(Prompt.inputInt("코드? "));
