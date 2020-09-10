@@ -39,13 +39,15 @@ public class LibraryMain {
           case "/book/detail": bookHandler.detail(); break;
 
           // 사서용
-          case "/member/master": librarianHandler.master(); break;
+          case "/master/add": librarianHandler.master(); break;
+          case "/master/list": librarianHandler.list(); break;
+
           case "/book/delete": bookHandler.delete(); break;
           case "/book/update": bookHandler.update(); break;
 
           case "/library/info": libraryHandler.libraryInfo(); break;
-          case "/book/info": libraryHandler.bookInfo(); break;
           case "/book/rent": libraryHandler.rent(); break;
+          case "/rent/info": libraryHandler.rentInfo(); break;
 
 
 

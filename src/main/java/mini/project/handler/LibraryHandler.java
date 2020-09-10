@@ -40,6 +40,7 @@ public class LibraryHandler {
     System.out.printf("입장 횟수: %s\n", viewCount++);
   }
 
+
   public void rent() {
 
     Library library = new Library();
@@ -65,7 +66,7 @@ public class LibraryHandler {
         System.out.println("정보 입력을 취소합니다.");
         return;
       } else {
-        System.out.println("도서의 정보를 적어주세요.");
+        System.out.println("대여할 도서의 정보를 적어주세요.");
         System.out.println();
 
         library.setTitle(Prompt.inputString("도서명? "));
@@ -83,8 +84,8 @@ public class LibraryHandler {
     }
   }
 
-  public void bookInfo() {
-    System.out.println("[해당 도서의 상세를 조회합니다.]");
+  public void rentInfo() {
+    System.out.println("[대여된 도서의 상세를 조회합니다.]");
     String title = Prompt.inputString("도서명? ");
     Library library = findByName(title);
 
@@ -109,6 +110,7 @@ public class LibraryHandler {
     System.out.printf("도서코드: %s\n", library.getNo());
     System.out.printf("출판사: %s\n", library.getPublisher());
     System.out.printf("대여 유무: %s\n", stateLabel);
+    System.out.printf("대여 기간: %s ~ %s\n", library.getStartrent(), library.getEndrent());
 
   }
 
