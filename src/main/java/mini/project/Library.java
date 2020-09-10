@@ -1,7 +1,7 @@
 package mini.project;
 
 import mini.project.handler.MemberHandler;
-import mini.project.util.PromptTest;
+import mini.project.util.Prompt;
 
 // Member - 회원 정보 필드
 // MembrHandler - 회원 가입/목록/상세조회/수정/탈퇴/로그인
@@ -13,7 +13,7 @@ public class Library {
 
     loop:
       while (true) {
-        String command = PromptTest.inputString("명령> ");
+        String command = Prompt.inputString("명령> ");
 
         switch (command) {
           case "/member/add": memberHandler.add(); break;
@@ -31,6 +31,6 @@ public class Library {
         }
         System.out.println(); // 이전 명령의 실행을 구분하기 위해 빈 줄 출력
       }
-  PromptTest.close();
+  Prompt.close();
   }
 }
