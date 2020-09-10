@@ -13,7 +13,7 @@ public class MemberHandler {
   // 회원 등록
   public void add() {
     System.out.println("[도서관 회원 가입]");
-    System.out.println("회원 가입 시 입력하신 번호는");
+    System.out.println("회원 가입 시 입력하신 회원 정보는");
     System.out.println("1. 도서 시스템 이용 / 2. 회원 찾기 및 회원 변경 관련하여 이용되며 분실에 유의하시기 바랍니다.");
 
     Member member = new Member();
@@ -151,10 +151,10 @@ public class MemberHandler {
   }
 
   // 회원 이름
-  private Member findByName(String name) {
+  public Member findByName(String name) {
     for (int i = 0; i < memberList.size(); i++) {
       Member member = memberList.get(i);
-      if (member.getName().equals(name)) {
+      if (member.getId().equals(name)) {
         return member;
       }
     }

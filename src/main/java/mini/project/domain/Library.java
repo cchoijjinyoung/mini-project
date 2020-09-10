@@ -4,17 +4,24 @@ import java.sql.Date;
 
 public class Library {
 
+  public String getMemberId() {
+    return memberId;
+  }
+  public void setMemberId(String memberId) {
+    this.memberId = memberId;
+  }
+
   private int state;
   private String title;
   private String name;
-  private String writer;
+  private String author;
   private String publisher;
-  private int code;
+  private int no;
   private Date startrent;
   private Date endrent;
-  private int enterCount;
+  private int viewCount;
   private boolean Available;
-
+  private String memberId;
 
   public int getState() {
     return state;
@@ -34,11 +41,11 @@ public class Library {
   public void setName(String name) {
     this.name = name;
   }
-  public String getWriter() {
-    return writer;
+  public String getAuthor() {
+    return author;
   }
-  public void setWriter(String writer) {
-    this.writer = writer;
+  public void setAuthor(String writer) {
+    this.author = writer;
   }
   public String getPublisher() {
     return publisher;
@@ -46,11 +53,11 @@ public class Library {
   public void setPublisher(String publisher) {
     this.publisher = publisher;
   }
-  public int getCode() {
-    return code;
+  public int getNo() {
+    return no;
   }
-  public void setCode(int code) {
-    this.code = code;
+  public void setNo(int code) {
+    this.no = code;
   }
   public Date getStartrent() {
     return startrent;
@@ -64,11 +71,11 @@ public class Library {
   public void setEndrent(Date endrent) {
     this.endrent = endrent;
   }
-  public int getEnterCount() {
-    return enterCount;
+  public int getViewCount() {
+    return viewCount;
   }
-  public void setEnterCount(int enterCount) {
-    this.enterCount = enterCount;
+  public void setViewCount(int enterCount) {
+    this.viewCount = enterCount;
   }
 
   public boolean isbAvailable() {
@@ -79,9 +86,4 @@ public class Library {
     this.Available = bAvailable;
   }
 
-
-
-
-
 }
-

@@ -1,22 +1,27 @@
 package mini.project.handler;
 
 import java.util.LinkedList;
-import mini.project.domain.Member;
+import mini.project.domain.Book;
 import mini.project.util.Prompt;
 
 public class BookHandler {
 
-  LinkedList<Member> booklist = new LinkedList();
+  LinkedList<Book> booklist = new LinkedList();
 
 
   // 도서 등록
   public void add() {
     System.out.println("[도서 등록]");
 
-    Member book = new Member();
+
+    Book book = new Book();
     book.setNo(Prompt.inputInt("번호? "));
     book.setTitle(Prompt.inputString("도서제목? "));
     book.setAuthor(Prompt.inputString("지은이? "));
+    book.setGanre(Prompt.inputString("장르? "));
+    book.setTitle(Prompt.inputString("도서명? "));
+    book.setNo(Prompt.inputInt("도서 번호? "));
+    book.setAuthor(Prompt.inputString("작가명? "));
     book.setGanre(Prompt.inputString("장르? "));
 
     System.out.println("도서를 등록했습니다.");
@@ -29,12 +34,12 @@ public class BookHandler {
     System.out.println("[도서 목록]");
 
     for (int i = 0; i < booklist.size(); i++) {
-      Member book = booklist.get(i);
+      Book book = booklist.get(i);
       System.out.printf("%d, %s, %s, %s\n",
-         book.getNo(),
-         book.getTitle(),
-         book.getAuthor(),
-         book.getGanre());
+          book.getNo(),
+          book.getTitle(),
+          book.getAuthor(),
+          book.getGanre());
     }
   }
 
@@ -42,7 +47,7 @@ public class BookHandler {
   public void detail() {
     System.out.println("[도서 조회]");
     int no = Prompt.inputInt("번호? ");
-    Member book = findByNo(no);
+    Book book = findByNo(no);
 
     if (book == null) {
       System.out.println("해당 도서가 존재하지 않습니다.");
@@ -59,7 +64,7 @@ public class BookHandler {
   public void update() {
     System.out.println("[도서 수정]");
     int no = Prompt.inputInt("번호? ");
-    Member book = findByNo(no);
+    Book book = findByNo(no);
 
     if (book == null) {
       System.out.println("해당 번호의 도서가 없습니다.");
@@ -108,9 +113,9 @@ public class BookHandler {
   }
 
   // 도서 번호
-  private Member findByNo(int no) {
+  private Book findByNo(int no) {
     for (int i = 0; i < booklist.size(); i++) {
-      Member book = booklist.get(i);
+      Book book = booklist.get(i);
       if (book.getNo() == no) {
         return book;
       }
@@ -121,7 +126,7 @@ public class BookHandler {
   // 도서 삭제
   private int indexOf(int no) {
     for (int i = 0; i < booklist.size(); i++) {
-      Member book = booklist.get(i);
+      Book book = booklist.get(i);
       if (book.getNo() == no) {
         return i;
       }
