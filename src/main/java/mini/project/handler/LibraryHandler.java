@@ -2,12 +2,14 @@ package mini.project.handler;
 
 import java.sql.Date;
 import java.util.LinkedList;
+import mini.project.domain.Book;
 import mini.project.domain.Library;
 import mini.project.util.PromptTest;
 
 public class LibraryHandler {
 
   LinkedList<Library> libraryList = new LinkedList();
+  LinkedList<Book> bookList = new LinkedList();
 
   public void libraryInfo() {
     System.out.println("도서관 입장 정보");
@@ -19,6 +21,21 @@ public class LibraryHandler {
 
     library.setViewCount(library.getViewCount() + 1);
     System.out.printf("입장 횟수: %s\n", library.getViewCount());
+  }
+
+  public void rent() {
+    System.out.println("[도서 대여]");
+
+    Library library = new Library();
+    library.setName(PromptTest.inputString("책 이름? "));
+    library.setNo(PromptTest.inputInt("코드? "));
+    library.setAuthor(PromptTest.inputString("저자? "));
+    library.setPublisher(PromptTest.inputString("출판사? "));
+    library.setStartrent(PromptTest.inputDate("대여 시작일? "));
+    library.setEndrent(PromptTest.inputDate("대여 완료일? "));
+    library.setState(PromptTest.inputInt("상태?\n1: 대여 중\n2: 대여 가능\n> "));
+
+    libraryList.add(library);
   }
 
   public void checkBook() {
@@ -64,7 +81,7 @@ public class LibraryHandler {
 
     System.out.printf("도서명: %s\n", library.getTitle());
     System.out.printf("저자: %s\n", library.getAuthor());
-    System.out.printf("도서코드: %s\n", library.getCode());
+    System.out.printf("도서코드: %s\n", library.getNo());
     System.out.printf("출판사: %s\n", library.getPublisher());
 
   }

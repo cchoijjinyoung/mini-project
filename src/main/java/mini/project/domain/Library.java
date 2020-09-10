@@ -9,7 +9,7 @@ public class Library {
   private String name;
   private String author;
   private String publisher;
-  private int code;
+  private int no;
   private Date startrent;
   private Date endrent;
   private int viewCount;
@@ -46,11 +46,11 @@ public class Library {
   public void setPublisher(String publisher) {
     this.publisher = publisher;
   }
-  public int getCode() {
-    return code;
+  public int getNo() {
+    return no;
   }
-  public void setCode(int code) {
-    this.code = code;
+  public void setNo(int code) {
+    this.no = code;
   }
   public Date getStartrent() {
     return startrent;

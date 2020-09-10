@@ -30,14 +30,16 @@ public class LibraryMain {
           case "/member/delete": memberHandler.delete(); break;
           case "/member/login": memberHandler.login(); break;
 
-          case "/library/libraryInfo": libraryHandler.libraryInfo(); break;
-          case "/book/check": libraryHandler.checkBook(); break;
-          case "/book/bookInfo": libraryHandler.bookInfo(); break;
-
           case "/book/add": bookHandler.add(); break;
           case "/book/list": bookHandler.list(); break;
           case "/book/update": bookHandler.delete(); break;
           case "/book/delete": bookHandler.delete(); break;
+          case "/book/detail": bookHandler.detail(); break;
+
+          case "/library/libraryInfo": libraryHandler.libraryInfo(); break;
+          case "/book/check": libraryHandler.checkBook(); break;
+
+
 
 
 

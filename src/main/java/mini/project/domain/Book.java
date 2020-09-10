@@ -6,6 +6,25 @@ public class Book {
   String title;
   String author;
   String ganre;
+  String publisher;
+  private boolean Available;
+
+
+  public String getPublisher() {
+    return publisher;
+  }
+  public void setPublisher(String publisher) {
+    this.publisher = publisher;
+  }
+  public boolean isAvailable() {
+    return Available;
+  }
+  public void setAvailable(boolean available) {
+    Available = available;
+  }
+
+
+
   public int getNo() {
     return no;
   }
@@ -30,6 +49,8 @@ public class Book {
   public void setGanre(String ganre) {
     this.ganre = ganre;
   }
+
+
 
 
 
